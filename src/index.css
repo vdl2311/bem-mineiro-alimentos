@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Lato:wght@300;400;700;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Lato', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+
+  --color-bem-red: #c0272d;
+  --color-bem-red-dark: #8f1a1f;
+  --color-bem-red-light: #d94040;
+  --color-bem-brown: #4a1a1a;
+  --color-bem-brown-dark: #2e0e0e;
+  --color-bem-gold: #d4a843;
+  --color-bem-gold-dark: #a87c28;
+  --color-bem-gold-light: #f0cc70;
+  --color-bem-cream: #fdf5e6;
+  --color-bem-warm-white: #fffcf5;
+  --color-bem-text-dark: #2a0e0e;
+  --color-bem-text-mid: #5c2a2a;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bem-warm-white);
+  color: var(--color-bem-text-dark);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+.bg-pattern-overlay {
+  background-image: repeating-linear-gradient(-45deg, transparent, transparent 48px, rgba(212,168,67,0.04) 48px, rgba(212,168,67,0.04) 50px);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s ease both;
+}
