@@ -1,8 +1,10 @@
 import React from 'react';
 import regeneratedImage from '../assets/images/regenerated_image_1778282408468.jpg';
 import { products, categories, BASE_URL } from '../data/products';
+import { motion } from 'motion/react';
 
 // Import banner images
+import heroBg from '../assets/images/pao de queijo pagina principal.jpeg';
 import promoTemos from '../assets/images/atual-1024x1024.jpeg';
 import promoRecheado from '../assets/images/whatsapp-image-2021-12-03-at-172617-1-1024x1024.jpeg';
 import promoLactose from '../assets/images/whatsapp-image-2021-12-03-at-172617-1024x1024.jpeg';
@@ -23,12 +25,36 @@ export default function Home() {
     <div className="animate-fade-in-up">
       {/* Hero Section */}
       <section className="relative min-h-[88vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-bem-brown-dark/70 mix-blend-multiply z-10"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-bem-brown-dark via-transparent to-black/50 z-10"></div>
+        <div className="absolute inset-0 bg-bem-brown-dark/40 mix-blend-multiply z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-bem-brown-dark via-transparent to-black/30 z-10"></div>
         <div 
-          className="absolute inset-0 bg-center bg-cover bg-no-repeat"
-          style={{ backgroundImage: `url('https://www.bemmineiroalimentos.com.br/wordpress/wp-content/files/bemmineiroalimentos.com.br/2021/02/pao-de-queijo-palito-4.jpeg')` }}
+          className="absolute inset-0 bg-center bg-cover bg-no-repeat transition-transform duration-[20s] animate-ken-burns"
+          style={{ backgroundImage: `url(${heroBg})` }}
         ></div>
+        
+        {/* Steam Effect */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden z-[15]">
+          {[...Array(12)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute bottom-[-150px] w-[250px] h-[600px] bg-white/30 rounded-[50%] blur-[60px]"
+              style={{ left: `${(i * 10) - 10}%` }}
+              initial={{ opacity: 0, y: 0, scale: 0.8, x: 0 }}
+              animate={{
+                opacity: [0, 0.7, 0.4, 0],
+                y: -1400,
+                scale: [0.8, 2.5, 4.5],
+                x: [0, (i % 3 === 0 ? 80 : i % 3 === 1 ? -80 : 0), (i % 2 === 0 ? -40 : 40)],
+              }}
+              transition={{
+                duration: 8 + i * 2,
+                repeat: Infinity,
+                delay: i * 1.5,
+                ease: "easeInOut"
+              }}
+            />
+          ))}
+        </div>
         
         {/* Top/Bottom Borders */}
         <div className="absolute left-0 right-0 top-0 h-1 bg-bem-gold/80 z-20"></div>
@@ -76,7 +102,7 @@ export default function Home() {
               >
                 <div className="aspect-square bg-[#faf8f5] flex items-center justify-center p-0 relative">
                   <div className="absolute inset-0 bg-bem-brown-dark/0 group-hover:bg-bem-brown-dark/5 transition-colors duration-500 z-10 pointer-events-none"></div>
-                  <img src={img.src} alt={img.alt} loading="lazy" referrerPolicy="no-referrer" className="w-full h-full object-cover block transition-transform duration-700 ease-out group-hover:scale-105" />
+                  <img src={img.src} alt={img.alt} loading="lazy" className="w-full h-full object-cover block transition-transform duration-700 ease-out group-hover:scale-105" />
                 </div>
               </div>
             ))}
@@ -105,7 +131,7 @@ export default function Home() {
                   >
                     <div className="overflow-hidden bg-[#faf8f5] aspect-square flex items-center justify-center p-0 relative">
                       <div className="absolute inset-0 bg-bem-brown-dark/0 group-hover:bg-bem-brown-dark/5 transition-colors duration-500 z-10 pointer-events-none"></div>
-                      <img src={p.img} alt={p.name} loading="lazy" referrerPolicy="no-referrer" className="w-full h-full object-cover block transition-transform duration-700 ease-out group-hover:scale-[1.08]" />
+                      <img src={p.img} alt={p.name} loading="lazy" className="w-full h-full object-cover block transition-transform duration-700 ease-out group-hover:scale-[1.08]" />
                     </div>
                     <div className="px-[16px] py-[16px] flex items-center justify-center font-bold text-[13px] text-white text-center bg-gradient-to-br from-bem-red-dark to-bem-red border-t border-bem-gold/40 tracking-[0.06em] min-h-[54px] transition-colors duration-500">
                       {p.name}
@@ -128,7 +154,7 @@ export default function Home() {
           </div>
           <div className="max-w-[1000px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-[50px] items-start">
             <div className="rounded-[20px] overflow-hidden shadow-[0_16px_48px_rgba(100,20,20,0.12)] border-[6px] border-white bg-white">
-              <img src="https://www.bemmineiroalimentos.com.br/wordpress/wp-content/files/bemmineiroalimentos.com.br/2021/02/tamanhos-pao-de-queijo-reduzido-1-768x577.jpeg" alt="Tamanhos" referrerPolicy="no-referrer" className="w-full h-auto block" />
+              <img src="https://www.bemmineiroalimentos.com.br/wordpress/wp-content/files/bemmineiroalimentos.com.br/2021/02/tamanhos-pao-de-queijo-reduzido-1-768x577.jpeg" alt="Tamanhos" className="w-full h-auto block" />
             </div>
             <div className="flex flex-col gap-[20px]">
               <div className="bg-gradient-to-br from-[#8f1a1f] to-[#4a1a1a] rounded-[16px] p-[26px_30px] text-white shadow-[0_8px_24px_rgba(100,20,20,0.12)] transition-all duration-500 hover:translate-x-2 border border-white/10 hover:border-bem-gold/30">
@@ -334,9 +360,8 @@ export default function Home() {
             </div>
             <div className="rounded-[24px] overflow-hidden shadow-[0_20px_60px_rgba(20,0,0,0.12)] relative border-[6px] border-white group">
               <img 
-                src="https://www.bemmineiroalimentos.com.br/wordpress/wp-content/files/bemmineiroalimentos.com.br/2021/02/pao-de-queijo-palito-4.jpeg" 
+                src={promoPalito} 
                 alt="Pão de Queijo Bem Mineiro" 
-                referrerPolicy="no-referrer"
                 className="w-full h-full object-cover block h-[550px] transition-transform duration-[15s] group-hover:scale-110"
               />
               <div className="absolute inset-0 border border-black/5 rounded-[18px] pointer-events-none z-10"></div>

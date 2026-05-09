@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="bg-bem-brown text-white/70 pt-14 px-10 pb-7 text-center border-t border-bem-gold/20">
       <Link to="/" className="inline-block" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-         <img src="https://i.ibb.co/dC4ZB7c/logo-bem-mineiro-final-curvas1-1024x818.png" alt="Bem Mineiro" referrerPolicy="no-referrer" className="h-[100px] mb-[22px] mx-auto block" />
+         <img src="https://i.ibb.co/dC4ZB7c/logo-bem-mineiro-final-curvas1-1024x818.png" alt="Bem Mineiro" className="h-[100px] mb-[22px] mx-auto block" />
       </Link>
       <div className="flex justify-center flex-wrap gap-7 mb-[22px]">
         <a href="/#sobre" className="text-white/55 no-underline text-[13px] tracking-[0.05em] transition-colors duration-200 uppercase hover:text-bem-gold">Sobre nós</a>

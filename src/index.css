@@ -67,3 +67,16 @@ html {
 .animate-fade-in-up {
   animation: fadeInUp 0.5s ease both;
 }
+
+@keyframes kenBurns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+
+.animate-ken-burns {
+  animation: kenBurns 20s ease-in-out infinite alternate;
+}
