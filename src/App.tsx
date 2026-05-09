@@ -3,19 +3,29 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfUse from './pages/TermsOfUse';
+import CookieConsent from './components/CookieConsent';
 
 export default function App() {
   return (
     <div className="flex flex-col min-h-screen font-sans bg-bem-warm-white text-bem-text-dark relative">
       <Header />
       <main className="flex-1">
-        <Home />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/politica-de-privacidade" element={<PrivacyPolicy />} />
+          <Route path="/termos-de-uso" element={<TermsOfUse />} />
+        </Routes>
       </main>
       <Footer />
       
+      <CookieConsent />
+
       {/* WhatsApp Floating Button */}
       <a 
         href="https://api.whatsapp.com/send?phone=5531986866067" 

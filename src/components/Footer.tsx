@@ -1,17 +1,19 @@
 import { Facebook, Instagram } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
     <footer className="bg-bem-brown text-white/70 pt-14 px-10 pb-7 text-center border-t border-bem-gold/20">
-      <a href="#" className="inline-block" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
+      <Link to="/" className="inline-block" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
          <img src="https://i.ibb.co/dC4ZB7c/logo-bem-mineiro-final-curvas1-1024x818.png" alt="Bem Mineiro" className="h-[100px] mb-[22px] mx-auto block" />
-      </a>
+      </Link>
       <div className="flex justify-center flex-wrap gap-7 mb-[22px]">
-        <a href="#sobre" className="text-white/55 no-underline text-[13px] tracking-[0.05em] transition-colors duration-200 uppercase hover:text-bem-gold">Sobre nós</a>
-        <a href="#produtos" className="text-white/55 no-underline text-[13px] tracking-[0.05em] transition-colors duration-200 uppercase hover:text-bem-gold">Produtos</a>
-        <a href="#contato" className="text-white/55 no-underline text-[13px] tracking-[0.05em] transition-colors duration-200 uppercase hover:text-bem-gold">Fale conosco</a>
-        <a href="#seja-parceiro" className="text-white/55 no-underline text-[13px] tracking-[0.05em] transition-colors duration-200 uppercase hover:text-bem-gold">Seja um ponto de venda</a>
-        <a href="#" onClick={(e) => e.preventDefault()} className="text-white/55 no-underline text-[13px] tracking-[0.05em] transition-colors duration-200 uppercase hover:text-bem-gold">Política de Privacidade</a>
+        <a href="/#sobre" className="text-white/55 no-underline text-[13px] tracking-[0.05em] transition-colors duration-200 uppercase hover:text-bem-gold">Sobre nós</a>
+        <a href="/#produtos" className="text-white/55 no-underline text-[13px] tracking-[0.05em] transition-colors duration-200 uppercase hover:text-bem-gold">Produtos</a>
+        <a href="/#contato" className="text-white/55 no-underline text-[13px] tracking-[0.05em] transition-colors duration-200 uppercase hover:text-bem-gold">Fale conosco</a>
+        <a href="/#seja-parceiro" className="text-white/55 no-underline text-[13px] tracking-[0.05em] transition-colors duration-200 uppercase hover:text-bem-gold">Seja um ponto de venda</a>
+        <Link to="/politica-de-privacidade" className="text-white/55 no-underline text-[13px] tracking-[0.05em] transition-colors duration-200 uppercase hover:text-bem-gold">Política de Privacidade</Link>
+        <Link to="/termos-de-uso" className="text-white/55 no-underline text-[13px] tracking-[0.05em] transition-colors duration-200 uppercase hover:text-bem-gold">Termos de Uso</Link>
       </div>
       <div className="flex justify-center gap-3.5 mb-[30px]">
         <a href="https://www.facebook.com/paodequeijobemmineiro/" target="_blank" rel="noreferrer" className="flex items-center justify-center w-[42px] h-[42px] rounded-full bg-bem-gold/10 border border-bem-gold/30 text-bem-gold transition-colors duration-200 hover:bg-bem-gold hover:text-bem-brown-dark hover:border-bem-gold">

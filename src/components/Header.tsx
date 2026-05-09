@@ -1,29 +1,32 @@
 import { Facebook, Instagram } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeHash, setActiveHash] = useState('');
+  const location = useLocation();
 
   const navLinks = [
-    { name: 'Produtos', path: '#produtos' },
-    { name: 'Onde encontrar', path: '#onde-encontrar' },
-    { name: 'Seja um ponto de venda', path: '#seja-parceiro' },
-    { name: 'Produção', path: '#producao' },
-    { name: 'Sobre nós', path: '#sobre' },
-    { name: 'Fale conosco', path: '#contato' },
+    { name: 'Produtos', path: '/#produtos' },
+    { name: 'Onde encontrar', path: '/#onde-encontrar' },
+    { name: 'Seja um ponto de venda', path: '/#seja-parceiro' },
+    { name: 'Produção', path: '/#producao' },
+    { name: 'Sobre nós', path: '/#sobre' },
+    { name: 'Fale conosco', path: '/#contato' },
   ];
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = navLinks.map(link => document.querySelector(link.path));
+      if (location.pathname !== '/') return;
+      const sections = navLinks.map(link => document.querySelector(link.path.replace('/', '')));
       let currentActiveHash = '';
 
       sections.forEach(section => {
         if (section) {
           const rect = section.getBoundingClientRect();
           if (rect.top <= 100 && rect.bottom >= 100) {
-            currentActiveHash = '#' + section.id;
+            currentActiveHash = '/' + '#' + section.id;
           }
         }
       });
@@ -35,7 +38,16 @@ export default function Header() {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [navLinks]);
+  }, [navLinks, location.pathname]);
+
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.querySelector(location.hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [location]);
 
   const isActive = (path: string) => activeHash === path;
 
@@ -54,11 +66,11 @@ export default function Header() {
         </a>
       </div>
 
-      <div className="sticky top-0 z-50 relative">
+      <div className="sticky top-0 z-[100] relative">
         <nav className="bg-white/95 backdrop-blur-md flex items-center justify-between px-10 shadow-sm border-b border-bem-gold/20">
-          <a href="#" className="cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+          <Link to="/" className="cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <img src="https://i.ibb.co/dC4ZB7c/logo-bem-mineiro-final-curvas1-1024x818.png" alt="Bem Mineiro" className="h-16 py-1.5 block" />
-          </a>
+          </Link>
           <ul className="hidden md:flex gap-2 list-none m-0 p-0">
             {navLinks.map((link) => (
               <li key={link.path}>
@@ -80,7 +92,7 @@ export default function Header() {
 
         {isMenuOpen && (
           <div className="md:hidden flex flex-col bg-bem-warm-white border-b-4 border-bem-gold shadow-[0_4px_16px_rgba(100,0,0,0.1)] absolute top-full left-0 w-full z-40">
-            <a href="#" className="p-3.5 px-6 font-bold text-[13px] uppercase tracking-[0.06em] text-bem-text-mid border-b border-bem-gold/15 hover:text-bem-red hover:bg-bem-cream" onClick={() => setIsMenuOpen(false)}>🏠 Home</a>
+            <Link to="/" className="p-3.5 px-6 font-bold text-[13px] uppercase tracking-[0.06em] text-bem-text-mid border-b border-bem-gold/15 hover:text-bem-red hover:bg-bem-cream" onClick={() => { setIsMenuOpen(false); window.scrollTo(0, 0); }}>🏠 Home</Link>
             {navLinks.map((link) => (
                <a key={link.path} href={link.path} className="p-3.5 px-6 font-bold text-[13px] uppercase tracking-[0.06em] text-bem-text-mid border-b border-bem-gold/15 hover:text-bem-red hover:bg-bem-cream" onClick={() => setIsMenuOpen(false)}>
                  {link.name}
