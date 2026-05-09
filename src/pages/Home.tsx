@@ -1,5 +1,6 @@
 import React from 'react';
 import regeneratedImage from '../assets/images/regenerated_image_1778282408468.jpg';
+import { products, categories, BASE_URL } from '../data/products';
 
 // Import banner images
 import promoTemos from '../assets/images/atual-1024x1024.jpeg';
@@ -8,6 +9,16 @@ import promoLactose from '../assets/images/whatsapp-image-2021-12-03-at-172617-1
 import promoPalito from '../assets/images/whatsapp-image-2021-12-03-at-172617-2-1024x1024.jpeg';
 
 export default function Home() {
+  const [lightboxImg, setLightboxImg] = React.useState<{src: string, name: string} | null>(null);
+
+  React.useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setLightboxImg(null);
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
   return (
     <div className="animate-fade-in-up">
       {/* Hero Section */}
@@ -51,7 +62,8 @@ export default function Home() {
           </p>
         </div>
         <div className="py-[10px] px-5 md:px-[40px] max-w-[1240px] mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mt-10">
+          {/* Promotional Banners */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mt-10 mb-20">
             {[
               { src: promoTemos, alt: "Temos Pão de Queijo Tradicional e Recheado" },
               { src: promoRecheado, alt: "Pão de Queijo Recheado" },
@@ -68,6 +80,41 @@ export default function Home() {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Flavors Grid */}
+          <div className="flex flex-col gap-[30px] mb-10">
+            {categories.map((category, index) => (
+              <div key={index} className="">
+                <div className="text-center mb-6">
+                  <h3 className="font-serif text-[clamp(1.5rem,3vw,2.2rem)] text-bem-brown-dark mb-2">
+                    {category.title}
+                  </h3>
+                  {category.description && (
+                    <p className="text-bem-text-mid max-w-[600px] mx-auto text-[0.95rem] md:text-[1.05rem] font-light">
+                      {category.description}
+                    </p>
+                  )}
+                </div>
+              <div className="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-[24px]">
+                {category.items.map((p) => (
+                  <div 
+                    key={p.name} 
+                    onClick={() => setLightboxImg({src: p.img, name: p.name})}
+                    className="group bg-white rounded-[16px] overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.04)] transition-all duration-500 cursor-pointer border border-black/5 hover:-translate-y-[8px] hover:border-bem-gold/30 hover:shadow-[0_20px_48px_rgba(100,20,20,0.12)]"
+                  >
+                    <div className="overflow-hidden bg-[#faf8f5] aspect-square flex items-center justify-center p-0 relative">
+                      <div className="absolute inset-0 bg-bem-brown-dark/0 group-hover:bg-bem-brown-dark/5 transition-colors duration-500 z-10 pointer-events-none"></div>
+                      <img src={p.img} alt={p.name} loading="lazy" className="w-full h-full object-cover block transition-transform duration-700 ease-out group-hover:scale-[1.08]" />
+                    </div>
+                    <div className="px-[16px] py-[16px] flex items-center justify-center font-bold text-[13px] text-white text-center bg-gradient-to-br from-bem-red-dark to-bem-red border-t border-bem-gold/40 tracking-[0.06em] min-h-[54px] transition-colors duration-500">
+                      {p.name}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
           </div>
         </div>
         
@@ -323,6 +370,36 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Lightbox */}
+      {lightboxImg && (
+        <div 
+          className="fixed inset-0 bg-black/40 backdrop-blur-md z-[999] flex items-center justify-center p-5 cursor-pointer transition-all duration-500 animate-in fade-in"
+          onClick={(e) => { if (e.target === e.currentTarget) setLightboxImg(null); }}
+        >
+          <div className="relative max-w-[500px] w-full animate-in zoom-in-95 duration-300 cursor-default">
+            <button 
+              onClick={() => setLightboxImg(null)}
+              className="absolute -top-4 -right-4 bg-white text-bem-red border border-black/5 w-[38px] h-[38px] rounded-full flex items-center justify-center font-black cursor-pointer shadow-[0_4px_20px_rgba(0,0,0,0.15)] hover:scale-105 hover:bg-gray-50 transition-all z-10"
+              aria-label="Fechar"
+            >
+              ✕
+            </button>
+            <div className="bg-white p-2 rounded-[24px] shadow-[0_20px_60px_rgba(0,0,0,0.2)]">
+              <img 
+                src={lightboxImg.src} 
+                alt={lightboxImg.name} 
+                className="w-full rounded-[18px] block pointer-events-none border border-black/5"
+              />
+              <div className="px-6 py-5">
+                <div className="font-serif text-[1.6rem] text-bem-brown-dark text-center font-bold">
+                  {lightboxImg.name}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
     </div>
   );
