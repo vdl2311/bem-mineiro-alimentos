@@ -69,7 +69,7 @@ export default function Header() {
       <div className="sticky top-0 z-[100] relative">
         <nav className="bg-white/95 backdrop-blur-md flex items-center justify-between px-10 shadow-sm border-b border-bem-gold/20">
           <Link to="/" className="cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <img src="https://i.ibb.co/dC4ZB7c/logo-bem-mineiro-final-curvas1-1024x818.png" alt="Bem Mineiro" className="h-16 py-1.5 block" />
+            <img src="https://i.ibb.co/dC4ZB7c/logo-bem-mineiro-final-curvas1-1024x818.png" alt="Bem Mineiro" referrerPolicy="no-referrer" className="h-16 py-1.5 block" />
           </Link>
           <ul className="hidden md:flex gap-2 list-none m-0 p-0">
             {navLinks.map((link) => (

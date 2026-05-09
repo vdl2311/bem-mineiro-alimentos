@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://bemmineiroalimentos.com.br/wordpress/wp-content/files/bemmineiroalimentos.com.br';
+export const BASE_URL = 'https://www.bemmineiroalimentos.com.br/wordpress/wp-content/files/bemmineiroalimentos.com.br';
 
 export const products = [
   { name: 'Palito Tradicional',          img: `${BASE_URL}/2022/03/pao-de-queijo-palito-4.webp` },

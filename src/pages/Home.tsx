@@ -27,7 +27,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-t from-bem-brown-dark via-transparent to-black/50 z-10"></div>
         <div 
           className="absolute inset-0 bg-center bg-cover bg-no-repeat"
-          style={{ backgroundImage: `url('https://bemmineiroalimentos.com.br/wordpress/wp-content/files/bemmineiroalimentos.com.br/2021/02/pao-de-queijo-palito-4.jpeg')` }}
+          style={{ backgroundImage: `url('https://www.bemmineiroalimentos.com.br/wordpress/wp-content/files/bemmineiroalimentos.com.br/2021/02/pao-de-queijo-palito-4.jpeg')` }}
         ></div>
         
         {/* Top/Bottom Borders */}
@@ -70,13 +70,13 @@ export default function Home() {
               { src: promoPalito, alt: "Palito de Queijo" },
               { src: promoLactose, alt: "Linha Zero Lactose" },
             ].map((img, index) => (
-              <div 
+                  <div 
                 key={index} 
                 className="group relative bg-white rounded-[24px] overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.06)] transition-all duration-500 border-4 border-white hover:-translate-y-2 hover:shadow-[0_20px_48px_rgba(100,20,20,0.12)] hover:border-bem-gold/20"
               >
                 <div className="aspect-square bg-[#faf8f5] flex items-center justify-center p-0 relative">
                   <div className="absolute inset-0 bg-bem-brown-dark/0 group-hover:bg-bem-brown-dark/5 transition-colors duration-500 z-10 pointer-events-none"></div>
-                  <img src={img.src} alt={img.alt} loading="lazy" className="w-full h-full object-cover block transition-transform duration-700 ease-out group-hover:scale-105" />
+                  <img src={img.src} alt={img.alt} loading="lazy" referrerPolicy="no-referrer" className="w-full h-full object-cover block transition-transform duration-700 ease-out group-hover:scale-105" />
                 </div>
               </div>
             ))}
@@ -105,7 +105,7 @@ export default function Home() {
                   >
                     <div className="overflow-hidden bg-[#faf8f5] aspect-square flex items-center justify-center p-0 relative">
                       <div className="absolute inset-0 bg-bem-brown-dark/0 group-hover:bg-bem-brown-dark/5 transition-colors duration-500 z-10 pointer-events-none"></div>
-                      <img src={p.img} alt={p.name} loading="lazy" className="w-full h-full object-cover block transition-transform duration-700 ease-out group-hover:scale-[1.08]" />
+                      <img src={p.img} alt={p.name} loading="lazy" referrerPolicy="no-referrer" className="w-full h-full object-cover block transition-transform duration-700 ease-out group-hover:scale-[1.08]" />
                     </div>
                     <div className="px-[16px] py-[16px] flex items-center justify-center font-bold text-[13px] text-white text-center bg-gradient-to-br from-bem-red-dark to-bem-red border-t border-bem-gold/40 tracking-[0.06em] min-h-[54px] transition-colors duration-500">
                       {p.name}
@@ -128,7 +128,7 @@ export default function Home() {
           </div>
           <div className="max-w-[1000px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-[50px] items-start">
             <div className="rounded-[20px] overflow-hidden shadow-[0_16px_48px_rgba(100,20,20,0.12)] border-[6px] border-white bg-white">
-              <img src="https://bemmineiroalimentos.com.br/wordpress/wp-content/files/bemmineiroalimentos.com.br/2021/02/tamanhos-pao-de-queijo-reduzido-1-768x577.jpeg" alt="Tamanhos" className="w-full h-auto block" />
+              <img src="https://www.bemmineiroalimentos.com.br/wordpress/wp-content/files/bemmineiroalimentos.com.br/2021/02/tamanhos-pao-de-queijo-reduzido-1-768x577.jpeg" alt="Tamanhos" referrerPolicy="no-referrer" className="w-full h-auto block" />
             </div>
             <div className="flex flex-col gap-[20px]">
               <div className="bg-gradient-to-br from-[#8f1a1f] to-[#4a1a1a] rounded-[16px] p-[26px_30px] text-white shadow-[0_8px_24px_rgba(100,20,20,0.12)] transition-all duration-500 hover:translate-x-2 border border-white/10 hover:border-bem-gold/30">
@@ -334,8 +334,9 @@ export default function Home() {
             </div>
             <div className="rounded-[24px] overflow-hidden shadow-[0_20px_60px_rgba(20,0,0,0.12)] relative border-[6px] border-white group">
               <img 
-                src="https://bemmineiroalimentos.com.br/wordpress/wp-content/files/bemmineiroalimentos.com.br/2021/02/pao-de-queijo-palito-4.jpeg" 
+                src="https://www.bemmineiroalimentos.com.br/wordpress/wp-content/files/bemmineiroalimentos.com.br/2021/02/pao-de-queijo-palito-4.jpeg" 
                 alt="Pão de Queijo Bem Mineiro" 
+                referrerPolicy="no-referrer"
                 className="w-full h-full object-cover block h-[550px] transition-transform duration-[15s] group-hover:scale-110"
               />
               <div className="absolute inset-0 border border-black/5 rounded-[18px] pointer-events-none z-10"></div>
@@ -389,6 +390,7 @@ export default function Home() {
               <img 
                 src={lightboxImg.src} 
                 alt={lightboxImg.name} 
+                referrerPolicy="no-referrer"
                 className="w-full rounded-[18px] block pointer-events-none border border-black/5"
               />
               <div className="px-6 py-5">
