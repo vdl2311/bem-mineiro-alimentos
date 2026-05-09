@@ -89,12 +89,12 @@ export default function Home() {
         </div>
         <div className="py-[10px] px-5 md:px-[40px] max-w-[1240px] mx-auto">
           {/* Promotional Banners */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mt-10 mb-20">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 mt-10 mb-20">
             {[
               { src: promoTemos, alt: "Temos Pão de Queijo Tradicional e Recheado" },
               { src: promoRecheado, alt: "Pão de Queijo Recheado" },
-              { src: promoPalito, alt: "Palito de Queijo" },
               { src: promoLactose, alt: "Linha Zero Lactose" },
+              { src: promoPalito, alt: "Palito de Queijo" },
             ].map((img, index) => (
                   <div 
                 key={index} 
@@ -152,10 +152,7 @@ export default function Home() {
                 <div className="w-12 h-1 bg-bem-gold rounded-full"></div>
             </div>
           </div>
-          <div className="max-w-[1000px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-[50px] items-start">
-            <div className="rounded-[20px] overflow-hidden shadow-[0_16px_48px_rgba(100,20,20,0.12)] border-[6px] border-white bg-white">
-              <img src="https://www.bemmineiroalimentos.com.br/wordpress/wp-content/files/bemmineiroalimentos.com.br/2021/02/tamanhos-pao-de-queijo-reduzido-1-768x577.jpeg" alt="Tamanhos" className="w-full h-auto block" />
-            </div>
+          <div className="max-w-[1000px] mx-auto grid grid-cols-1 md:grid-cols-1 gap-[50px] items-start">
             <div className="flex flex-col gap-[20px]">
               <div className="bg-gradient-to-br from-[#8f1a1f] to-[#4a1a1a] rounded-[16px] p-[26px_30px] text-white shadow-[0_8px_24px_rgba(100,20,20,0.12)] transition-all duration-500 hover:translate-x-2 border border-white/10 hover:border-bem-gold/30">
                 <h3 className="font-serif text-bem-gold text-[1.2rem] mb-2 tracking-wide text-shadow-sm">🎉 Tamanho Festa</h3>
@@ -360,7 +357,7 @@ export default function Home() {
             </div>
             <div className="rounded-[24px] overflow-hidden shadow-[0_20px_60px_rgba(20,0,0,0.12)] relative border-[6px] border-white group">
               <img 
-                src={promoPalito} 
+                src={heroBg} 
                 alt="Pão de Queijo Bem Mineiro" 
                 className="w-full h-full object-cover block h-[550px] transition-transform duration-[15s] group-hover:scale-110"
               />

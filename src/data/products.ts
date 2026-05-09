@@ -11,7 +11,7 @@ import goiabada from '../assets/images/recheio de goiabada.jpg';
 import pizza from '../assets/images/recheio de pizza.jpg';
 import tradicional from '../assets/images/tradicional (13).png';
 
-export const BASE_URL = 'https://www.bemmineiroalimentos.com.br/wordpress/wp-content/files/bemmineiroalimentos.com.br';
+export const BASE_URL = 'https://bemmineiroalimentos.com.br/wordpress/wp-content/files/bemmineiroalimentos.com.br';
 
 export const products = [
   { name: 'Palito Tradicional',          img: palitoTradicional },
@@ -46,32 +46,6 @@ export const categories = [
       { name: 'Pernil', img: pernil },
       { name: 'Pizza', img: pizza },
       { name: 'Provolone', img: provolone },
-    ]
-  },
-  {
-    title: 'Palito de Queijo',
-    description: 'Pcte 500gr - 20 unid. Uma versão prática e deliciosa para todas as horas. NÃO CONTÉM GLÚTEN.',
-    items: [
-      { name: 'Mussarela', img: `${BASE_URL}/2021/12/whatsapp-image-2021-12-04-at-172246.jpeg` },
-      { name: 'Alho Poró', img: `${BASE_URL}/2021/12/whatsapp-image-2021-12-04-at-172247-1-1.jpeg` },
-      { name: 'Ervas Finas', img: `${BASE_URL}/2021/12/whatsapp-image-2021-12-04-at-172247.jpeg` },
-      { name: 'Tradicional', img: palitoTradicional }
-    ]
-  },
-  {
-    title: 'Linha Zero Lactose',
-    description: 'Ideal para dietas com restrição de Lactose. Embalagem: 400g. NÃO CONTÉM GLÚTEN. SEM LACTOSE.',
-    items: [
-      { name: 'Frango Zero Lactose', img: frango }, 
-      { name: 'Palito Zero Lactose', img: palitoTradicional }, 
-      { name: 'Tradicional Zero Lactose', img: tradicional }
-    ]
-  },
-  {
-    title: 'Pão de Queijo Tradicional',
-    description: 'A receita original que conquistou o Brasil. NÃO CONTÉM GLÚTEN. CONTÉM LACTOSE.',
-    items: [
-      { name: 'Tradicional', img: tradicional }
     ]
   }
 ];
