@@ -30,6 +30,14 @@ html {
   scroll-padding-top: 100px;
 }
 
+@utility scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 .bg-pattern-overlay {
   background-image: repeating-linear-gradient(-45deg, transparent, transparent 48px, rgba(212,168,67,0.04) 48px, rgba(212,168,67,0.04) 50px);
 }
@@ -42,6 +50,17 @@ html {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 

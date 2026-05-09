@@ -54,39 +54,41 @@ export default function Header() {
         </a>
       </div>
 
-      <nav className="bg-white/95 backdrop-blur-md flex items-center justify-between px-10 shadow-sm sticky top-0 z-50 border-b border-bem-gold/20">
-        <a href="#" className="cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-          <img src="https://i.ibb.co/dC4ZB7c/logo-bem-mineiro-final-curvas1-1024x818.png" alt="Bem Mineiro" className="h-16 py-1.5 block" />
-        </a>
-        <ul className="hidden md:flex gap-2 list-none m-0 p-0">
-          {navLinks.map((link) => (
-            <li key={link.path}>
-              <a
-                href={link.path}
-                className={`block py-6 px-4 no-underline font-bold text-xs tracking-[0.07em] uppercase border-b-2 transition-all duration-300 ${isActive(link.path) ? 'text-bem-red border-bem-gold' : 'text-bem-text-mid border-transparent hover:text-bem-red hover:border-bem-gold/50'}`}
-              >
-                {link.name}
-              </a>
-            </li>
-          ))}
-        </ul>
-        <div className="md:hidden flex flex-col gap-[5px] cursor-pointer p-2.5" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          <span className="block w-[26px] h-0.5 bg-bem-red-dark rounded-sm"></span>
-          <span className="block w-[26px] h-0.5 bg-bem-red-dark rounded-sm"></span>
-          <span className="block w-[26px] h-0.5 bg-bem-red-dark rounded-sm"></span>
-        </div>
-      </nav>
+      <div className="sticky top-0 z-50 relative">
+        <nav className="bg-white/95 backdrop-blur-md flex items-center justify-between px-10 shadow-sm border-b border-bem-gold/20">
+          <a href="#" className="cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+            <img src="https://i.ibb.co/dC4ZB7c/logo-bem-mineiro-final-curvas1-1024x818.png" alt="Bem Mineiro" className="h-16 py-1.5 block" />
+          </a>
+          <ul className="hidden md:flex gap-2 list-none m-0 p-0">
+            {navLinks.map((link) => (
+              <li key={link.path}>
+                <a
+                  href={link.path}
+                  className={`block py-6 px-4 no-underline font-bold text-xs tracking-[0.07em] uppercase border-b-2 transition-all duration-300 ${isActive(link.path) ? 'text-bem-red border-bem-gold' : 'text-bem-text-mid border-transparent hover:text-bem-red hover:border-bem-gold/50'}`}
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <div className="md:hidden flex flex-col gap-[5px] cursor-pointer p-2.5" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            <span className="block w-[26px] h-0.5 bg-bem-red-dark rounded-sm"></span>
+            <span className="block w-[26px] h-0.5 bg-bem-red-dark rounded-sm"></span>
+            <span className="block w-[26px] h-0.5 bg-bem-red-dark rounded-sm"></span>
+          </div>
+        </nav>
 
-      {isMenuOpen && (
-        <div className="md:hidden flex flex-col bg-bem-warm-white border-b-4 border-bem-gold shadow-[0_4px_16px_rgba(100,0,0,0.1)] absolute w-full z-40">
-          <a href="#" className="p-3.5 px-6 font-bold text-[13px] uppercase tracking-[0.06em] text-bem-text-mid border-b border-bem-gold/15 hover:text-bem-red hover:bg-bem-cream" onClick={() => setIsMenuOpen(false)}>🏠 Home</a>
-          {navLinks.map((link) => (
-             <a key={link.path} href={link.path} className="p-3.5 px-6 font-bold text-[13px] uppercase tracking-[0.06em] text-bem-text-mid border-b border-bem-gold/15 hover:text-bem-red hover:bg-bem-cream" onClick={() => setIsMenuOpen(false)}>
-               {link.name}
-             </a>
-          ))}
-        </div>
-      )}
+        {isMenuOpen && (
+          <div className="md:hidden flex flex-col bg-bem-warm-white border-b-4 border-bem-gold shadow-[0_4px_16px_rgba(100,0,0,0.1)] absolute top-full left-0 w-full z-40">
+            <a href="#" className="p-3.5 px-6 font-bold text-[13px] uppercase tracking-[0.06em] text-bem-text-mid border-b border-bem-gold/15 hover:text-bem-red hover:bg-bem-cream" onClick={() => setIsMenuOpen(false)}>🏠 Home</a>
+            {navLinks.map((link) => (
+               <a key={link.path} href={link.path} className="p-3.5 px-6 font-bold text-[13px] uppercase tracking-[0.06em] text-bem-text-mid border-b border-bem-gold/15 hover:text-bem-red hover:bg-bem-cream" onClick={() => setIsMenuOpen(false)}>
+                 {link.name}
+               </a>
+            ))}
+          </div>
+        )}
+      </div>
     </>
   );
 }
