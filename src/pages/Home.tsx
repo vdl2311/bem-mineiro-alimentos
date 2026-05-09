@@ -33,7 +33,7 @@ export default function Home() {
         ></div>
         
         {/* Steam Effect */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden z-[15]">
+        <div className="absolute inset-0 pointer-events-none overflow-hidden z-[15] hidden md:block">
           {[...Array(12)].map((_, i) => (
             <motion.div
               key={i}
