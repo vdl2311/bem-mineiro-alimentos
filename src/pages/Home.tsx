@@ -397,7 +397,7 @@ export default function Home() {
       {/* Lightbox */}
       {lightboxImg && (
         <div 
-          className="fixed inset-0 bg-black/40 backdrop-blur-md z-[999] flex items-center justify-center p-5 cursor-pointer transition-all duration-500 animate-in fade-in"
+          className="fixed inset-0 bg-black/40 z-[999] flex items-center justify-center p-5 cursor-pointer transition-all duration-500 animate-in fade-in"
           onClick={(e) => { if (e.target === e.currentTarget) setLightboxImg(null); }}
         >
           <div className="relative max-w-[500px] w-full animate-in zoom-in-95 duration-300 cursor-default">

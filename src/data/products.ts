@@ -34,7 +34,7 @@ export const products = [
 export const categories = [
   {
     title: 'Pão de Queijo Recheado',
-    description: 'Ideal para café da manhã e lanche da tarde. Servir em recepções, coquetéis e também ser vendido em lanchonete e cafeteria. Embalagem: 500g, 1kg. NÃO CONTÉM GLÚTEN. CONTÉM LACTOSE.',
+    description: 'Ideal para café da manhã e lanche da tarde. Servir em recepções, coquetéis e também ser vendido em lanchonete e cafeteria.',
     items: [
       { name: 'Alho Poró c/ Milho', img: alhoPoro },
       { name: 'Bacon', img: bacon },
